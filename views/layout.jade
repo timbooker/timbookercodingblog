@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    title= 'My Poet Blog'
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar.navbar-inverse
+      .container
+        .navbar-header
+          a.navbar-brand(href='/') my blog
+    .wrap
+      .container
+        .row
+          .col-md-9.col-xs-12
+            block content
+          .col-md-3.col-xs-12
+            .well.sidebar-nav
+              ul.nav.nav-list
+                li.nav-header categories
+                - each cat in getCategories()
+                  li
+                    a(href=categoryURL(cat)) #{cat}
+                li.nav-header tags
+                - each tag in getTags()
+                  li
+                    a(href=tagURL(tag)) #{tag}
+    footer.footer
+      .container
+        .well.well-sm
+          small
+            p
+              | All content &copy; 2014 ...
+            p
+              | This blog runs on
+              = ' '
+              a(href="http://nodejs.org/") Node.js
+              = ' '
+              | in
+              = ' '
+              a(href="http://www.windowsazure.com/en-us/services/web-sites/") Windows Azure Web Sites
+              = ' '
+              | using the
+              = ' '
+              a(href="http://jsantell.github.io/poet/") Poet
+              = ' '
+              | blog engine.
