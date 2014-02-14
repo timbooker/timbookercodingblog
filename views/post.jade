@@ -12,16 +12,17 @@ block content
       - each tag in post.tags
         a(href=tagUrl(tag))
           span.label.label-info #{tag}
-    //- div#disqus_thread
-    //- script.
-    //-   var disqus_shortname = 'my-disqus-name';
-
-    //-   (function() {
-    //-       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    //-       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    //-       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    //-   })();
-    //- a(href="http://disqus.com" class="dsq-brlink")
-    //-   | comments powered by 
-    //-   span.logo-disqus Disqus
+    div#disqus_thread
+     script.
+       var disqus_shortname = 'timbookerblog';
+       
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    a(href="http://disqus.com" class="dsq-brlink")
+      | comments powered by 
+         span.logo-disqus Disqus
+    
     
