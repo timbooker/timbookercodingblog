@@ -10,6 +10,8 @@ html
     link(rel='stylesheet', href='/stylesheets/metronic/style-responsive.css')
     link(rel='stylesheet', href='/stylesheets/metronic/themes/blue.css')
     link(rel='stylesheet', href='/stylesheets/metronic/custom.css')
+    link(rel='stylesheet', href='/plugins/fancybox/source/jquery.fancybox.css')
+    link(rel='stylesheet', href='/plugins/font-awesome/css/font-awesome.min.css')
   body
     header
       .header.navbar.navbar-default.navbar-static-top
@@ -83,6 +85,8 @@ html
     script(type='text/javascript' src='/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min.js')
     script(type='text/javascript' src='/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js')
     script(type='text/javascript' src='/plugins/bxslider/jquery.bxslider.min.js')
+    script(type='text/javascript' src='/plugins/fancybox/source/jquery.fancybox.pack.js')
     script(type='text/javascript' src='/scripts/app.js')
+    |<script type='text/javascript'> jQuery(document).ready(function(){ App.init(); }); </script>
 
     script(type='text/javascript' src='/scripts/index.js')

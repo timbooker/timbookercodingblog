@@ -6,12 +6,6 @@
   "preview": "The feature I'm really going to be focusing on here is it's ability to be used as a scratchpad of sorts, and dump out the results into a nice, navigable table..."
 }}}
 
-## Quick about me intro
-
-Put simply, I've been planning on getting started with blogging for a while. I occasionally come up with things that would be useful to more people than just me, generally get half a blog post written up, and leave it there. It's been this way for several years - and it's time for that to change. 
-
-With that out of the way, let's get started with something useful.
-
 ## What is Simple.Data?
 
 Simple.Data is a great micro-orm-ish thing, similar in a lot of ways to dapper / petapoco / etc, but with just a little bit more feature rich (ability to create linq-like dynamic queries that resolve to POCOs easily being the killer for me)
@@ -25,6 +19,41 @@ One of the slight downers with it, is that there's no profiling tools (other tha
 LINQPad is another great tool that has nearly replaced SQL Server Management Studio in my day-to-day group of tools. If you're not familiar with it, I'd strongly recommend giving it a try (the basic non-intellisensed version of it is free.)
 
 The feature I'm really going to be focusing on here is it's ability to be used as a scratchpad of sorts, and dump out the results into a nice, navigable table. 
+
+A few screenshots of what to expect lie below:
+
+<div class="blog-item-img">
+<!-- BEGIN CAROUSEL -->            
+	<div class="front-carousel">
+		<div id="myCarousel" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="item">
+					<img src="/img/uploaded/ienumerablecastedobject.png" alt="object casted to your POCO type" />
+				</div>
+				<div class="active item">
+					<img src="/img/uploaded/childofcastedimage.png" alt="Child of object casted to your POCO type" />
+				</div>
+				<div class="item">
+					<img src="/img/uploaded/uncastedresult.png" alt="Dynamic result set" />
+				</div>
+				<div class="item">
+					<img src="/img/uploaded/itemwithindynamicresult.png" alt="Item within dynamic result set" />
+				</div>
+				<div class="item">
+					<img src="/img/uploaded/sqlforquery.png" alt="Sql query generated from Simple.Data command" />
+				</div>
+			</div>
+			<!-- Carousel nav -->
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+				<i class="fa fa-angle-left"></i>
+			</a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>                
+	</div>
+</div>
+
 
 ### Prerequisities 
 
@@ -41,7 +70,7 @@ First up, I've created a trace-listener-interceptor, in order to push the SQL (o
 
 The code is available on [github](https://github.com/timbooker/Simple.Data.Linqpad.Tracelistener). 
 
-You should clone + compile this, and [add it you your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79.aspx).
+You should clone + compile this, and [add it to your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79.aspx).
 
 You will now need to set up this tracelistener with LINQPad. To do this, navigate to your LINQPad installation directory (e.g. `C:\Program File(x86)\LINQPad4\`), and create a new file - `linqpad.config`.
 
