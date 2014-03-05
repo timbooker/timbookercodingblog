@@ -2,14 +2,15 @@
   "title": "Introduction, and Using LINQPad with Simple.Data",
   "tags": ["simple.data", "linqpad", "devtools"],
   "category": "simple.data",
-  "date": "2014-02-27"
+  "date": "2014-02-27",
+  "preview": "The feature I'm really going to be focusing on here is it's ability to be used as a scratchpad of sorts, and dump out the results into a nice, navigable table..."
 }}}
 
 ## Quick about me intro
 
 Put simply, I've been planning on getting started with blogging for a while. I occasionally come up with things that would be useful to more people than just me, generally get half a blog post written up, and leave it there. It's been this way for several years - and it's time for that to change. 
 
-With that, let's get started with something useful.
+With that out of the way, let's get started with something useful.
 
 ## What is Simple.Data?
 
@@ -131,5 +132,7 @@ void Main()
 Finally, you must enable the 'Always use Fresh Application Domains' setting within LINQPad. This is done by going to Edit => Preferences => Advanced.
 
 It should look a little like this - 
+
 ![Preferences](http://i.imgur.com/EqgygNx.png "Preferences")
 
+Restart LINQPad, and start querying off the db object!
