@@ -1,35 +1,90 @@
 {{{
-  "title": "Introduction, and Using LinqPad with Simple.Data",
+  "title": "Introduction, and Using LINQPad with Simple.Data",
   "tags": ["simple.data", "linqpad", "devtools"],
   "category": "simple.data",
   "date": "2014-02-27"
 }}}
 
-Blog!
-=== 
+## Quick about me intro
 
 Put simply, I've been planning on getting started with blogging for a while. I occasionally come up with things that would be useful to more people than just me, generally get half a blog post written up, and leave it there. It's been this way for several years - and it's time for that to change. 
 
-With that, let's get started with something sort-of-useful.
+With that, let's get started with something useful.
 
-What is Simple.Data?
----
+## What is Simple.Data?
 
 Simple.Data is a great micro-orm-ish thing, similar in a lot of ways to dapper / petapoco / etc, but with just a little bit more feature rich (ability to create linq-like dynamic queries that resolve to POCOs easily being the killer for me)
 
 It's generally a great DB access component for when you don't feel the need to use any of the heavier ORMs, and don't fancy writing a whole bunch of messy ADO style code.
 
-Using LinqPad with Simple.Data
----
+## Using LINQPad with Simple.Data
 
-LinqPad is another great tool that has nearly replaced SQL Server Management Studio in my day-to-day group of tools. If you're not familiar with it, I'd strongly recommend giving it a try (the basic non-intellisensed version of it is free.)
+LINQPad is another great tool that has nearly replaced SQL Server Management Studio in my day-to-day group of tools. If you're not familiar with it, I'd strongly recommend giving it a try (the basic non-intellisensed version of it is free.)
 
 The feature I'm really going to be focusing on here is it's ability to be used as a scratchpad of sorts, and dump out the results into a nice, navigable table. 
 
 ### Prerequisities 
 
-* linqpad - http://www.linqpad.net/ 
+* LINQPad - http://www.linqpad.net/ 
 * simple.data - https://github.com/markrendle/Simple.Data
 
+The rest of this explanation assumes you have LINQPad installed, and have the Simple.Data (coupled with an adapter of your choice) binaries in a known place. Make sure this is done.
 
+If you are using the [Premium](http://www.linqpad.net/Purchase.aspx) version of LINQPad, you will be able to resolve the assemblies using NuGet, and will not need to have the Simple.Data binaries floating around.
+
+### Installing
+
+First up, I've created a trace-listener-interceptor, in order to push the SQL (or whatever DB type query) into the SQL window for LINQPad, a semi-formatted format. I've been really lazy with the formatting part of this, and just done a few bits to make it slightly more readable. Any contributions to this would be gratefully accepted. 
+
+The code is available on [github](https://github.com/timbooker/Simple.Data.Linqpad.Tracelistener). You should clone + compile this, and [add it you your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79(v=vs.110).aspx).
+
+Next, you'll need to navigate to C:\Users\username\Documents\LINQPad Queries (this assumes Windows 7, but basically the place where your user docs are stored in your OS.) This is where the custom queries for LINQPad get saved. 
+
+Take note that you'll need to change the directories to whatever would be appropriate for your machine. You should also note that in order to get the result as it would be if casted to as POCO in your machine, you will need to add a reference to the assembly on which the POCO definitions reside.
+
+If using Standard version
+```xml
+<Query Kind="Program">
+  <Connection>
+  </Connection>
+  <Output>DataGrids</Output>
+  <Reference>C:\location\for\your\entity\assembly\Data.dll</Reference>
+  <GACReference>Simple.Data.Linqpad.Tracelistener, Version=1.0.0.0, Culture=neutral, PublicKeyToken=568be0996a7cc8bf</GACReference>
+  <Reference>C:\location\for\Simple.Data.Ado</Reference>
+  <Reference>C:\location\forSimple.Data.SqlServer</Reference>
+  <Namespace>Namespace.For.Your.Pocos</Namespace>
+</Query>
+
+void Main()
+{
+ 	var db = Simple.Data.Database.OpenConnection("");
+
+	var result = db.WebsiteVisits.Get(123);
+	
+	((object)result).Dump("Data Returned");
+}
+```
+
+If using [Premium](http://www.linqpad.net/Purchase.aspx) 
+```xml
+<Query Kind="Program">
+  <Connection>
+  </Connection>
+  <Output>DataGrids</Output>
+  <Reference>C:\location\for\your\entity\assembly\Data.dll</Reference>
+  <GACReference>Simple.Data.Linqpad.Tracelistener, Version=1.0.0.0, Culture=neutral, PublicKeyToken=568be0996a7cc8bf</GACReference>
+  <NuGetReference>Simple.Data.Ado</NuGetReference>
+  <NuGetReference>Simple.Data.SqlServer</NuGetReference>
+  <Namespace>Namespace.For.Your.Pocos</Namespace>
+</Query>
+
+void Main()
+{
+ 	var db = Simple.Data.Database.OpenConnection("");
+
+	var result = db.WebsiteVisits.Get(123);
+	
+	((object)result).Dump("Data Returned");
+}
+```
 
