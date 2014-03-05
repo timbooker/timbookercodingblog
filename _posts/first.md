@@ -42,7 +42,7 @@ The code is available on [github](https://github.com/timbooker/Simple.Data.Linqp
 
 You should clone + compile this, and [add it you your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79.aspx).
 
-Next, you'll need to navigate to 'C:\Users\username\Documents\LINQPad Queries' (this assumes Windows 7, but basically the place where your user docs are stored in your OS.) This is where the custom queries for LINQPad get saved. 
+Next, you'll need to navigate to `C:\Users\username\Documents\LINQPad Queries` (this assumes Windows 7, but basically the place where your user docs are stored in your OS.) This is where the custom queries for LINQPad get saved. 
 
 *Take note that you'll need to change the directories to whatever would be appropriate for your machine.* 
 
