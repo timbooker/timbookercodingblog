@@ -17,6 +17,8 @@ Simple.Data is a great micro-orm-ish thing, similar in a lot of ways to dapper /
 
 It's generally a great DB access component for when you don't feel the need to use any of the heavier ORMs, and don't fancy writing a whole bunch of messy ADO style code.
 
+One of the slight downers with it, is that there's no profiling tools (other than SQL Server Profiler) - and certainly nothing that lets you test out poke around with the results in an easy way.
+
 ## Using LINQPad with Simple.Data
 
 LINQPad is another great tool that has nearly replaced SQL Server Management Studio in my day-to-day group of tools. If you're not familiar with it, I'd strongly recommend giving it a try (the basic non-intellisensed version of it is free.)
@@ -36,11 +38,15 @@ If you are using the [Premium](http://www.linqpad.net/Purchase.aspx) version of 
 
 First up, I've created a trace-listener-interceptor, in order to push the SQL (or whatever DB type query) into the SQL window for LINQPad, a semi-formatted format. I've been really lazy with the formatting part of this, and just done a few bits to make it slightly more readable. Any contributions to this would be gratefully accepted. 
 
-The code is available on [github](https://github.com/timbooker/Simple.Data.Linqpad.Tracelistener). You should clone + compile this, and [add it you your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79.aspx).
+The code is available on [github](https://github.com/timbooker/Simple.Data.Linqpad.Tracelistener). 
 
-Next, you'll need to navigate to C:\Users\username\Documents\LINQPad Queries (this assumes Windows 7, but basically the place where your user docs are stored in your OS.) This is where the custom queries for LINQPad get saved. 
+You should clone + compile this, and [add it you your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79.aspx).
 
-Take note that you'll need to change the directories to whatever would be appropriate for your machine. You should also note that in order to get the result as it would be if casted to as POCO in your machine, you will need to add a reference to the assembly on which the POCO definitions reside.
+Next, you'll need to navigate to 'C:\Users\username\Documents\LINQPad Queries' (this assumes Windows 7, but basically the place where your user docs are stored in your OS.) This is where the custom queries for LINQPad get saved. 
+
+*Take note that you'll need to change the directories to whatever would be appropriate for your machine.* 
+
+*You should also note that in order to get the result as it would be if casted to as POCO in your machine, you will need to add a reference to the assembly on which the POCO definitions reside.*
 
 If using Standard version
 ```xml
