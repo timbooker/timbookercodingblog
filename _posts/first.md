@@ -36,7 +36,7 @@ If you are using the [Premium](http://www.linqpad.net/Purchase.aspx) version of 
 
 First up, I've created a trace-listener-interceptor, in order to push the SQL (or whatever DB type query) into the SQL window for LINQPad, a semi-formatted format. I've been really lazy with the formatting part of this, and just done a few bits to make it slightly more readable. Any contributions to this would be gratefully accepted. 
 
-The code is available on [github](https://github.com/timbooker/Simple.Data.Linqpad.Tracelistener). You should clone + compile this, and [add it you your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79(v=vs.110).aspx).
+The code is available on [github](https://github.com/timbooker/Simple.Data.Linqpad.Tracelistener). You should clone + compile this, and [add it you your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79.aspx).
 
 Next, you'll need to navigate to C:\Users\username\Documents\LINQPad Queries (this assumes Windows 7, but basically the place where your user docs are stored in your OS.) This is where the custom queries for LINQPad get saved. 
 
