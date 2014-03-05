@@ -81,7 +81,7 @@ __Take note that you'll need to change the directories to whatever would be appr
 
 __You should also note that in order to get the result as it would be if casted to as POCO in your machine, you will need to add a reference to the assembly on which the POCO definitions reside.__
 
-If using Standard version
+#### If using Standard version
 ```xml
 <Query Kind="Program">
   <Connection>
@@ -105,7 +105,7 @@ void Main()
 }
 ```
 
-If using [Premium](http://www.linqpad.net/Purchase.aspx) 
+#### If using [Premium](http://www.linqpad.net/Purchase.aspx) 
 ```xml
 <Query Kind="Program">
   <Connection>
@@ -128,4 +128,8 @@ void Main()
 }
 ```
 
-Finally, you must enable the 'Always use Fresh Application Domains' setting within LINQPad. This is done 
+Finally, you must enable the 'Always use Fresh Application Domains' setting within LINQPad. This is done by going to Edit => Preferences => Advanced.
+
+It should look a little like this - 
+![Preferences](http://i.imgur.com/EqgygNx.png "Preferences")
+
