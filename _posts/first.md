@@ -27,7 +27,7 @@ The feature I'm really going to be focusing on here is it's ability to be used a
 
 ### Prerequisities 
 
-* LINQPad - http://www.linqpad.net/ 
+* LINQPad - http://www.linqpad.net/ (take note of where you've installed this - usually `C:\Program Files (x86)\LINQPad4`)
 * simple.data - https://github.com/markrendle/Simple.Data
 
 The rest of this explanation assumes you have LINQPad installed, and have the Simple.Data (coupled with an adapter of your choice) binaries in a known place. Make sure this is done.
@@ -42,11 +42,44 @@ The code is available on [github](https://github.com/timbooker/Simple.Data.Linqp
 
 You should clone + compile this, and [add it you your GAC](http://msdn.microsoft.com/en-us/library/dkkx7f79.aspx).
 
+You will now need to set up this tracelistener with LINQPad. To do this, navigate to your LINQPad installation directory (e.g. `C:\Program File(x86)\LINQPad4\`), and create a new file - `linqpad.config`.
+
+You should now paste the below in.
+
+```xml
+<configuration>
+    <system.diagnostics>
+	<sources>
+	      <source name="Simple.Data">
+        <listeners>
+          <add name="Simple.Data"/>
+        </listeners>
+      </source>
+	  </sources>
+	<switches>
+		<add name="Simple.Data" value="Verbose" />
+	</switches>
+	    <sharedListeners>
+      <add name="Simple.Data"
+        type="Simple.Data.Linqpad.Tracelistener.SqlTraceListener, Simple.Data.Linqpad.Tracelistener, Version=1.0.0.0, Culture=neutral, PublicKeyToken=568be0996a7cc8bf"
+      />
+    </sharedListeners>
+    	<trace autoflush="true">
+    		<listeners>
+    			<add name="logListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="cat.log" />
+    			<add name="consoleListener" type="Simple.Data.Linqpad.Tracelistener.SqlTraceListener, Simple.Data.Linqpad.Tracelistener, Version=1.0.0.0, Culture=neutral, PublicKeyToken=568be0996a7cc8bf"/>
+    		</listeners>
+    	</trace>
+    </system.diagnostics>
+</configuration>
+```
+
+
 Next, you'll need to navigate to `C:\Users\username\Documents\LINQPad Queries` (this assumes Windows 7, but basically the place where your user docs are stored in your OS.) This is where the custom queries for LINQPad get saved. 
 
-*Take note that you'll need to change the directories to whatever would be appropriate for your machine.* 
+**Take note that you'll need to change the directories to whatever would be appropriate for your machine.
 
-*You should also note that in order to get the result as it would be if casted to as POCO in your machine, you will need to add a reference to the assembly on which the POCO definitions reside.*
+You should also note that in order to get the result as it would be if casted to as POCO in your machine, you will need to add a reference to the assembly on which the POCO definitions reside.**
 
 If using Standard version
 ```xml
@@ -56,6 +89,7 @@ If using Standard version
   <Output>DataGrids</Output>
   <Reference>C:\location\for\your\entity\assembly\Data.dll</Reference>
   <GACReference>Simple.Data.Linqpad.Tracelistener, Version=1.0.0.0, Culture=neutral, PublicKeyToken=568be0996a7cc8bf</GACReference>
+  <Reference>C:\location\for\Simple.Data</Reference>
   <Reference>C:\location\for\Simple.Data.Ado</Reference>
   <Reference>C:\location\forSimple.Data.SqlServer</Reference>
   <Namespace>Namespace.For.Your.Pocos</Namespace>
@@ -94,3 +128,4 @@ void Main()
 }
 ```
 
+Finally, you must enable the 'Always use Fresh Application Domains' setting within LINQPad. This is done 
