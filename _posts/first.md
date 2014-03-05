@@ -77,9 +77,9 @@ You should now paste the below in.
 
 Next, you'll need to navigate to `C:\Users\username\Documents\LINQPad Queries` (this assumes Windows 7, but basically the place where your user docs are stored in your OS.) This is where the custom queries for LINQPad get saved. 
 
-**Take note that you'll need to change the directories to whatever would be appropriate for your machine.
+__Take note that you'll need to change the directories to whatever would be appropriate for your machine.__
 
-You should also note that in order to get the result as it would be if casted to as POCO in your machine, you will need to add a reference to the assembly on which the POCO definitions reside.**
+__You should also note that in order to get the result as it would be if casted to as POCO in your machine, you will need to add a reference to the assembly on which the POCO definitions reside.__
 
 If using Standard version
 ```xml
