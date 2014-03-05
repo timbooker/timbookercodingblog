@@ -6,7 +6,7 @@
 }}}
 
 Blog!
---- 
+=== 
 
 Put simply, I've been planning on getting started with blogging for a while. I occasionally come up with things that would be useful to more people than just me, generally get half a blog post written up, and leave it there. It's been this way for several years - and it's time for that to change. 
 
@@ -26,8 +26,7 @@ LinqPad is another great tool that has nearly replaced SQL Server Management Stu
 
 The feature I'm really going to be focusing on here is it's ability to be used as a scratchpad of sorts, and dump out the results into a nice, navigable table. 
 
-Prerequisities 
-====
+### Prerequisities 
 
 * linqpad - http://www.linqpad.net/ 
 * simple.data - https://github.com/markrendle/Simple.Data
